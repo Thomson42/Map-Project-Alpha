@@ -14,11 +14,21 @@ API Course, Lesson 1 -->
    <script>
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 45.5231, lng: 122.6765},
+        center: {lat: 122.6765, lng: 45.5231},
         zoom:13
       });
-     
-       
+      var eugene = {lat: 123.0868, lng: 44.0521};
+      var marker = new google.maps.Marker({
+        position: eugene,
+        map: map,
+        title: 'First Marker!'
+      });
+      var infowindow = new google.maps.InfoWindow({
+        content:'The best way to learn about the places I marked for you is to have them seperated accordingly.'
+      });
+      marker.addListener('click', function() {
+        infowindow.open(map, marker);
+      });
      }
    </script>
    <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
